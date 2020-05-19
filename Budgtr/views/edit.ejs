@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script src="/app.js"></script>
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="/skeleton.css">
+</head>
+
+<body>
+    <header>
+        <h1 class="create">Edit Item</h1>
+    </header>
+    <div class="container">
+        <form action="/budget/<%=index%>?_method=PUT" method="POST">
+            <% keys.forEach((key) => { %>
+            <div>
+                <label for=<%= key; %>><%= key[0].toUpperCase() + key.slice(1); %></label>
+                <input class="u-full-width" type="text" name="<%= key; %>" id="<%= key; %>"
+                    value="<%= item[key]; %>">
+            </div>
+            <% }) %>
+            <div>
+                <label for="amount">Amount</label>
+                <input class="u-full-width amount" type="number" name="amount" value="<%= item.amount; %>">
+            </div>
+            <div>
+                <label for="tags">Tags</label>
+                <div class='tags'>
+                    <input class="u-full-width" type="text" name="tags" value="<%= item.tags; %>">
+                </div>
+                <button class="add-more-tag">+</button>
+                <button class="remove-tag">-</button>
+            </div>
+            <div>
+                <label for="income">Income</label>
+                <input type="checkbox" name="income"
+            <% if(item.amount >= 0){ %>
+                checked
+            <% } %>
+            />
+            </div>
+            <input class="button-primary" type="submit" value="Edit">
+
+        </form>
+        <a class="button" href="/budget">BACK</a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget</title>
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="/skeleton.css">
+</head>
+
+<body>
+    <header>
+        <h1 class="create">Show Page</h1>
+    </header>
+    <div class="container">
+        <h2><%= item.name; %></h2>
+        <% keys.forEach((key) => { %>
+        <% if(key === 'tags') { %>
+        <h5><%= key[0].toUpperCase() + key.slice(1); %></h5>
+        <ul>
+            <% item[key].forEach((tag) => { %>
+            <li><%= tag %></li>
+            <% }) %>
+        </ul>
+        <%   } else { %>
+        <h5><%= key[0].toUpperCase() + key.slice(1); %></h5>
+        <ul>
+            <li><%= item[key]; %></li>
+        </ul>
+        <% } %>
+        <% }) %>
+        <a class="button" href="/budget">BACK</a>
+        <a class="button button-primary" href="/budget/<%=index%>/edit">Edit</a>
+    </div>
+</body>
+
+</html>

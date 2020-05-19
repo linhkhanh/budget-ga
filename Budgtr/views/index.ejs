@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script src="/app.js"></script>
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="/skeleton.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="top">
+                <h1>Budgtr ALL</h1>
+                <div class="top-money"><button class='money button'></button></div>
+            </div>
+            <div class="new"><a class="button button-primary" href="/budget/new">New</a></div>
+        </nav>
+    </header>
+    <div class="container">
+        <table class="u-full-width">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Date</th>
+                    <th>Name</th>
+                    <th>Amount</th>
+                    <th>Change</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% Budget.forEach((item, index) => { %>
+                <tr>
+                    <td><%= index + 1; %></td>
+                    <td><%= item.date; %> </td>
+                    <td><a href="/budget/<%= index; %>"><%= item.name; %></a></td>
+                    <td class="amount"><%= item.amount; %></td>
+                    <td>
+                        <form action="/budget/<%= index %>?_method=DELETE" method="POST" class="change">
+                            <input type="submit" value="DELETE" />
+                            <a class="button button-primary" href="/budget/<%=index%>/edit">Edit</a>
+                        </form>
+                    </td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

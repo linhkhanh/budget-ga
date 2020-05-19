@@ -1,0 +1,39 @@
+.container {
+    font-size: 20px;
+}
+header {    
+    border-bottom: 3px solid lightgray;
+    border-top: 3px solid lightgray;
+    padding: 1%;
+    margin-bottom: 1%;
+}
+nav {
+    width: 65%;
+    margin: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+.top {
+    width: 50%;
+    display: flex;  
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+.top-money > button {
+    font-size: 24px;
+}
+.top-money {
+    padding: 2%;
+    
+}
+.new {
+    padding: 1%;
+}
+
+.create {
+    text-align: center;
+}
+.change {
+    margin: 2%;
+}
